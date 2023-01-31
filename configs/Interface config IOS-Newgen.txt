@@ -1,0 +1,12 @@
+authentication host-mode multi-auth
+authentication open
+authentication order dot1x mab
+authentication port-control auto
+authentication periodic
+authentication timer reauthenticate server
+authentication timer inactivity server dynamic
+mab
+dot1x pae authenticator
+dot1x timeout tx-period 7
+dot1x max-reauth-req 3
+exit
