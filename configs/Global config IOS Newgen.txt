@@ -1,0 +1,43 @@
+!
+aaa new-model
+aaa session-id common
+!
+radius server FRSDN-ISEPSN02
+address ipv4 10.0.0.1 auth-port 1812 acct-port 1813
+key passw
+!
+radius server FRLOG-ISEPSN03
+address ipv4 10.0.0.1 auth-port 1812 acct-port 1813
+key passw
+!
+aaa group server radius ISE
+server name FRSDN-ISEPSN02
+server name FRLOG-ISEPSN03
+ip radius source-interface vlan1
+!
+aaa authentication dot1x default group ISE
+aaa authorization network default group ISE
+aaa accounting update newinfo periodic 2880
+aaa accounting dot1x default start-stop group ISE   
+aaa accounting system default start-stop group ISE
+!
+aaa server radius dynamic-author
+client 10.0.0.1 server-key n7mPgaHe #ip servers de radius
+client 10.0.0.2 server-key n7mPgaHe #ip servers
+!
+! Vendor specific attributes
+radius-server attribute 6 on-for-login-auth
+radius-server attribute 8 include-in-access-req
+radius-server attribute 25 access-request include
+radius-server attribute 31 mac format ietf upper-case
+radius-server attribute 31 send nas-port-detail mac-only
+radius-server dead-criteria time 10 tries 3
+radius-server deadtime 15
+!
+dot1x system-auth-control
+!
+logging discriminator NAC facility drops AUTHMGR|MAB|DOT1X mnemonics drops RESULT|FAILOVER|NOMOREMETHODS|FAIL|START
+logging buffered discriminator NAC
+logging console discriminator NAC
+logging monitor discriminator NAC
+!
