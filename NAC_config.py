@@ -74,11 +74,11 @@ def apply_dot1x_config(net, ip, apply, logica):
         if (logica == 1):
 
             send_command_lines('Global config IOS Newgen.txt', net, "0")
-            print("To the Switch with IP " + ip + " applying config: Global config IOS - APAC-Primary-Newgen.txt")
+            print("To the Switch with IP " + ip + " applying config: Global config IOS - Newgen.txt")
 
         elif (logica == 2):
             send_command_lines('Global config IOS Legacy.txt', net, "0")
-            print("To the Switch with IP " + ip + " applying config: Global config IOS - APAC-Primary-Legacy.txt")
+            print("To the Switch with IP " + ip + " applying config: Global config IOS - Legacy.txt")
 
 
 def apply_aut_config(ip, net, interface, apply, check, logica):
