@@ -2,8 +2,8 @@
 aaa new-model
 aaa session-id common
 !
-radius-server host 10.198.92.31 auth-port 1812 acct-port 1813 key n7mPgaHe
-radius-server host 10.199.242.30 auth-port 1812 acct-port 1813 key n7mPgaHe
+radius-server host 10.10.10.10 auth-port 1812 acct-port 1813 key n7mPgaHe
+radius-server host 10.10.10.10 auth-port 1812 acct-port 1813 key n7mPgaHe
 !
 aaa authentication dot1x default group radius
 aaa authorization network default group radius
@@ -16,11 +16,11 @@ client 10.198.92.31 server-key n7mPgaHe
 client 10.199.242.30 server-key n7mPgaHe
 !
 ! Vendor specific attributes
-radius-server attribute 6 on-for-login-auth
-radius-server attribute 8 include-in-access-req
-radius-server attribute 25 access-request include
-!radius-server attribute 31 mac format ietf upper-case
-!radius-server attribute 31 send nas-port-detail mac-only
+radius-server attribute X on-for-login-auth
+radius-server attribute X include-in-access-req
+radius-server attribute X access-request include
+!radius-server attribute X mac format ietf upper-case
+!radius-server attribute x send nas-port-detail mac-only
 radius-server dead-criteria time 10 tries 3
 radius-server deadtime 15
 !
