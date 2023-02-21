@@ -4,7 +4,7 @@ authentication order dot1x mab
 authentication port-control auto
 authentication periodic
 authentication timer reauthenticate server
-authentication timer inactivity server # por temas de config e IOS cambia
+authentication timer inactivity server # Diferent IOS
 mab
 dot1x pae authenticator
 dot1x timeout tx-period 7
